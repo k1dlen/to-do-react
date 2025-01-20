@@ -1,0 +1,209 @@
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(to right, #6a5acd, #8a2be2);
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.todo-container {
+  max-width: 600px; 
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.todo-title {
+  font-size: 32px;
+  text-align: center;
+  color: #4b0082;
+  margin-bottom: 20px;
+}
+
+.input-wrapper {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.todo-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  flex: 1;
+}
+
+.todo-add-button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #6a5acd;
+  color: white;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.todo-add-button:hover {
+  background-color: #5a4cbd; 
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s;
+}
+
+.todo-item:hover {
+  background-color: #f1f1f1; 
+}
+
+.todo-task {
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.todo-task.completed {
+  text-decoration: line-through;
+  color: #a9a9a9; 
+}
+
+.complete-button {
+  background-color: #28a745;
+  color: white;
+  padding: 5px 8px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.complete-button:hover {
+  background-color: #218838;
+}
+
+.delete-button {
+  background-color: #ff4b4b;
+  color: white;
+  padding: 5px 8px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #e60000;
+}
+
+.task-completed {
+  background-color: #e6ffe6;
+  transition: background-color 0.3s;
+}
+
+@media (max-width: 768px) {
+  .todo-container {
+      width: 90%;
+      padding: 15px;
+  }
+
+  .todo-title {
+      font-size: 28px;
+  }
+
+  .todo-item {
+      flex-direction: column; 
+      align-items: flex-start;
+  }
+
+  .complete-button, .delete-button {
+      margin-top: 10px;
+      margin-right: 0;
+      align-self: flex-end;
+  }
+
+  .input-wrapper {
+      flex-direction: column;
+      gap: 5px;
+  }
+
+  .todo-add-button {
+      width: 100%; 
+  }
+}
+
+/* Окно подтверждения */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.confirm-box {
+  background: #fff;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  max-width: 100%;
+}
+
+.confirm-message {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.confirm-button,
+.cancel-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+  font-size: 16px;
+}
+
+.confirm-button {
+  background-color: #ff4b4b;
+  color: white;
+}
+
+.cancel-button {
+  background-color: #ccc;
+  color: black;
+}
+
+.confirm-button:hover {
+  background-color: #e60000;
+}
+
+.cancel-button:hover {
+  background-color: #b3b3b3;
+}
+
+.overlay,
+.confirm-box {
+  transition: opacity 0.3s ease;
+}
+
